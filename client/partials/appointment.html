@@ -1,0 +1,33 @@
+<div ng-app = 'myApp' ng-controller = 'appointmentController'>
+	<div id = 'side'>
+		<h4>Doctor's Appointments</h4>
+		<div>
+			Search for Appointment <input placeholder=' Name...' type = 'text' ng-model = 'filter_name'>
+		</div><br><br><br>
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Name</th>
+				<th>Complain</th>
+			</tr>
+		</thead>
+
+		<tbody ng-repeat = "appointment in appointments | filter: { name: filter_name }">
+			<tr>
+				<td ng-bind = "appointment.date | date : 'mediumDate'"></td>
+				<td ng-bind = 'appointment.time'></td>
+				<td ng-bind = 'appointment.name'></td>
+				<td ng-bind = 'appointment.complain'</td>
+			<tr>
+		</tbody>
+	</table>
+</div>
+
+<a href="#/new_appointments"><button>Add Appointment<button></a>
+<a href="#/"><button>Log Out<button></a>
+
+

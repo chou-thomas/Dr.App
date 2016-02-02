@@ -1,0 +1,26 @@
+<div ng-app = 'myApp' ng-controller = 'appointmentController'>
+	<div id = 'side'  class ='col-md-3 col-sm-3'>
+		
+		<h4>New Appointment</h4>
+		<form>
+			Date <input type = 'text' name = 'dob' ng-model = 'new_appointment.date'><br><br>
+			
+			Time: <select ng-model = 'new_appointment.time'>
+				<option value="8 AM">8AM</option>
+				<option value="9 AM">9AM</option>
+				<option value="10 AM">10AM</option>
+				<option value="11 AM">11AM</option>
+				<option value="12 PM">12PM</option>
+				<option value="1 PM">1PM</option>
+				<option value="2 PM">2PM</option>
+				<option value="3 PM">3PM</option>
+				<option value="4 PM">4PM</option>
+				<option value="5 PM">5PM</option>
+			</select><br><br>
+			Complain: <textarea  rows = '4' cols = '20' ng-model = 'new_appointment.complain'></textarea><br><br>
+			<a href="#/appointments"><button>Cancel<button></a>
+			<input type = 'submit' value = 'Add' ng-click ='addAppointment()'>
+			
+		</form><br><br>
+	</div>
+</div>
