@@ -21,13 +21,13 @@
 				<td ng-bind = "appointment.date | date : 'mediumDate'"></td>
 				<td ng-bind = 'appointment.time'></td>
 				<td ng-bind = 'appointment.name'></td>
-				<td ng-bind = 'appointment.complain'</td>
+				<td ng-bind = 'appointment.complain'></td>
+				<td> <button ng-click = 'deleteAppointment(appointment._id)'>Delete</button> </td>
 			<tr>
 		</tbody>
 	</table>
-</div>
 
 <a href="#/new_appointments"><button>Add Appointment<button></a>
 <a href="#/"><button>Log Out<button></a>
-
+</div>
 

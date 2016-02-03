@@ -4,6 +4,7 @@ module.exports = {
 
 	all: function(req, res){
 		Appointment.find({}, function(err,appointment){
+			console.log("hello World");
 			if(err){
 				console.log('Error in All method of appointment.js controller');
 			} else{
@@ -33,6 +34,7 @@ module.exports = {
 	},
 
 	remove: function(req, res){
+		console.log(req.body._id);
 		Appointment.remove({_id: req.body.id}, function(err){
 			if(err){
 				console.log('Error in Remove method of appointment.js controller');

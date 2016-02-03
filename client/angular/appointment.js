@@ -18,6 +18,13 @@ myApp.factory('appointmentFactory',function($http){
 			callback();}
 		})
 	}
+
+	factory.delete_appointment = function(info, callback) {
+		console.log(info);
+		$http.post('/deleteappointment', {'id':info}).success(function(output){
+			callback(output);
+		})
+	}
     // most important step: return the object so it can be used by the rest of our angular code
     return factory;
 });
@@ -32,15 +39,16 @@ myApp.controller('appointmentController', function ($scope, appointmentFactory, 
     // run the getOrders method and set $scope data in the callback
     appointmentFactory.getAppointments(function (data){
         $scope.appointments = data;
+        console.log(data);
     })
 
     // userFactory.getUsers(function(data){
     //     $scope.users = data;
     // });
 
-    appointmentFactory.getAppointments(function(data){
-    	$scope.appointments = data;
-    })
+    // appointmentFactory.getAppointments(function(data){
+    // 	$scope.appointments = data;
+    // })
 
 	$scope.addAppointment = function() {
 		$scope.new_appointment.date = new Date();
@@ -59,6 +67,17 @@ myApp.controller('appointmentController', function ($scope, appointmentFactory, 
 				$location.path('/appointments');
 			}
 			});
+		})
+	}
+
+	$scope.deleteAppointment = function(id) {
+		console.log(id);
+		appointmentFactory.delete_appointment(id, function(data){
+		appointmentFactory.getAppointments(function (data){
+		$scope.appointments = data;
+			})
+			console.log(data);
+			$scope.appointments = data;
 		})
 	}
     

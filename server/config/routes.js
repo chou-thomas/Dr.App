@@ -27,7 +27,9 @@ module.exports = function(app){
 		users.create(req, res);
 	})
 
-	// app.get('/reset', function(req, res){
-	// 	bids.reset(req,res);
-	// })
+	app.post('/deleteappointment', function(req, res){
+		appointments.remove(req, res);
+	})
+
+
 }
