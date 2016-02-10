@@ -36,19 +36,10 @@ myApp.controller('appointmentController', function ($scope, appointmentFactory, 
     $scope.appointments = [];
     $scope.users =[];
     $scope.current_user = userFactory.name;
-    // run the getOrders method and set $scope data in the callback
     appointmentFactory.getAppointments(function (data){
         $scope.appointments = data;
         console.log(data);
     })
-
-    // userFactory.getUsers(function(data){
-    //     $scope.users = data;
-    // });
-
-    // appointmentFactory.getAppointments(function(data){
-    // 	$scope.appointments = data;
-    // })
 
 	$scope.addAppointment = function() {
 		$scope.new_appointment.date = new Date();
