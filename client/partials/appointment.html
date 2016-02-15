@@ -1,33 +1,43 @@
 <div ng-app = 'myApp' ng-controller = 'appointmentController'>
-	<div id = 'side'>
-		<h4>Welcome to the Dr. Appointments</h4>
-		<div>
-			Search for Appointment <input placeholder=' Name...' type = 'text' ng-model = 'filter_name'>
-		</div><br><br><br>
-	</div>
-
-	<table>
-		<thead>
+<div class="container">
+    <div class= "row">
+        <div class="col-md-12">
+        <p> Welcome to the Dr. Appointments</p>
+        	<div class="panel panel-warning">
+        	<div class="panel-heading">
+           		<div class="pull-right">
+					<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+						<i class="glyphicon glyphicon-filter"></i>
+					</span>
+				</div>
+				<div class="panel-body"> <p>Search for Appointment</p>
+					<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Name..." ng-model = 'filter_name' />
+				</div>
+			</div>
+            <table class="table">
+                <thead>
 			<tr>
 				<th>Date</th>
 				<th>Time</th>
 				<th>Name</th>
-				<th>Complain</th>
+				<th>Comments</th>
+				<th>Action</th>
 			</tr>
-		</thead>
-
-		<tbody ng-repeat = "appointment in appointments | filter: { name: filter_name }">
-			<tr>
-				<td ng-bind = "appointment.date | date : 'mediumDate'"></td>
-				<td ng-bind = 'appointment.time'></td>
-				<td ng-bind = 'appointment.name'></td>
-				<td ng-bind = 'appointment.complain'></td>
-				<td> <button ng-click = 'deleteAppointment(appointment._id)'>Delete</button> </td>
-			<tr>
-		</tbody>
-	</table>
-
-<a href="#/new_appointments"><button>Add Appointment<button></a>
-<a href="#/"><button>Log Out<button></a>
+				</thead>
+                <tbody ng-repeat = "appointment in appointments | filter: { name: filter_name }">
+                    <tr class="success">
+                       <td ng-bind = "appointment.date | date : 'mediumDate'"></td>
+                       <td ng-bind = 'appointment.time'></td>
+                       <td ng-bind = 'appointment.name'></td>
+                       <td ng-bind = 'appointment.complain'></td>
+                       <td> <button ng-click = 'deleteAppointment(appointment._id)'class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="col-xs-4 col-md-2"><a href="#/new_appointments" class="btn btn-success btn-block btn-sm">Add Appointment</a></div>
+			<div class="col-xs-4 col-md-2"><a href="#/" class="btn btn-danger btn-block btn-sm">Logout</a></div>
+        </div>
+    </div>
 </div>
-
+</div>

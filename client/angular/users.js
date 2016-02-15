@@ -1,14 +1,7 @@
 myApp.factory('userFactory', function($http){
 	var users = [];
 	var name;
-	// var appointment_id;
 	var factory = {};
-
-    // factory.getUsers = function (callback){
-    //     $http.get('/users').success(function(output){
-    //         callback(output);
-    //     })
-    // }
 
     factory.addUser= function(info, callback){
         this.name = info.name;
@@ -22,9 +15,6 @@ myApp.factory('userFactory', function($http){
 });
 
 myApp.controller('usersController', function ($scope, userFactory, $location){
-    // userFactory.getUsers(function(data){
-    //     $scope.users = data;
-    // });
 
     $scope.addUser = function (){
         if($scope.new_user == undefined || $scope.new_user.name == '' ){

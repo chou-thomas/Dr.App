@@ -8,3 +8,5 @@ var UserSchema = new mongoose.Schema({
 UserSchema.path('name').required(true, 'Name cannot be blank');
 
 var User = mongoose.model('User', UserSchema);
+
+// mongoose.js file will automatically get all the schemas and eporting them
