@@ -1,1 +1,1 @@
-web: sudo nodemon server.js
+web: nodemon server.js
