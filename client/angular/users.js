@@ -5,12 +5,11 @@ myApp.factory('userFactory', function($http){
 
     factory.addUser= function(info, callback){
         this.name = info.name;
-        // this.appointment_id = info.appointment_id;
         $http.post('/adduser', info).success(function(name_exists){
             callback(name_exists);
         })
     }
-    // name = self.name;
+ 
     return factory;
 });
 
@@ -21,7 +20,6 @@ myApp.controller('usersController', function ($scope, userFactory, $location){
             $scope.noname = 'Please Enter a Name';
         }
         else{
-            // $scope.new_user.appointment_id = $scope.users.length;
             userFactory.addUser($scope.new_user, 
                 function(name_exists){
                 $scope.name_exists = name_exists.msg;

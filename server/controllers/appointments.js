@@ -4,7 +4,6 @@ module.exports = {
 
 	all: function(req, res){
 		Appointment.find({}, function(err,appointment){
-			console.log("hello World");
 			if(err){
 				console.log('Error in All method of appointment.js controller');
 			} else{
